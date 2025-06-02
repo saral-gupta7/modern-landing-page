@@ -8,7 +8,7 @@ const CustomButton = ({ title, className }: ButtonProps) => {
   return (
     <div>
       <button
-        className={`rounded-lg border-1 px-5 py-2 transition-all duration-500 hover:bg-white hover:text-black ${className}`}
+        className={`rounded-lg border-1 px-10 py-3 transition-all duration-500 hover:bg-white hover:text-black ${className}`}
       >
         {title}
       </button>

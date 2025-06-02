@@ -1,11 +1,11 @@
 "use client";
 import { navItems } from "@/constants/constants";
-import { ModeToggle } from "@/components/mode-toggle";
-import CustomButton from "@/components/CustomButton";
+// import { ModeToggle } from "@/components/mode-toggle";
+// import CustomButton from "@/components/CustomButton";
 import { motion } from "motion/react";
 
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Navbar = () => {
   return (

@@ -4,7 +4,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <section className="min-h-screen bg-black px-7">
+    <section className="min-h-screen bg-black px-6">
       <Hero />
       <About />
     </section>
