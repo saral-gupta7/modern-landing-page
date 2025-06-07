@@ -5,8 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import CustomButton from "@/components/CustomButton";
-import postHero from "@/public/images/post-hero.jpg";
-import Image from "next/image";
+// import postHero from "@/public/images/post-hero.jpg";
+// import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
@@ -28,13 +28,14 @@ const Hero = () => {
     gsap.fromTo(
       "#coverContent",
       {
-        y: "-30%",
+        y: "100%",
         scale: 1,
-        opacity: 0,
+        // opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
+        stagger: 3,
         // scale: 1.2,
         scrollTrigger: {
           trigger: "#hero",
@@ -43,14 +44,15 @@ const Hero = () => {
           pin: "#hero",
           scrub: true,
         },
-        ease: "power2.inOut",
+        ease: "none",
+        duration: 3,
       },
     );
     // tl.to();
   }, []);
   return (
     <section
-      className="mx-auto h-screen max-w-screen px-4 pt-24 sm:pt-32"
+      className="mx-auto min-h-screen max-w-screen px-0 pt-24 sm:pt-32"
       id="hero"
     >
       <div className="relative h-full w-full rounded-3xl sm:rounded-3xl">
@@ -75,7 +77,46 @@ const Hero = () => {
         </div>
 
         <div
-          className="bg-gradient absolute inset-0 h-full rounded-3xl text-black"
+          className="absolute inset-0 h-full rounded-3xl text-black"
+          id="coverContent"
+        >
+          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-5 text-white">
+            <h1 className="font-poppins text-5xl uppercase">about</h1>
+            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
+          </div>
+
+          <video
+            muted
+            loop
+            autoPlay
+            playsInline
+            className="z-0 h-full w-full rounded-3xl object-cover"
+          >
+            <source src="/videos/hero2.mp4" />
+          </video>
+        </div>
+        <div
+          className="absolute inset-0 h-full rounded-3xl text-black"
+          id="coverContent"
+        >
+          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-5 text-white">
+            <h1 className="font-poppins text-5xl uppercase">about</h1>
+            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
+          </div>
+
+          <video
+            muted
+            loop
+            autoPlay
+            playsInline
+            className="z-0 h-full w-full rounded-3xl object-cover"
+          >
+            <source src="https://videos.pexels.com/video-files/3942468/3942468-hd_1920_1080_30fps.mp4" />
+          </video>
+        </div>
+
+        {/* <div
+          className="absolute inset-0 h-full rounded-3xl bg-purple-400 text-black"
           id="coverContent"
         >
           <div className="mx-auto mt-5 flex max-w-[95%] justify-between py-5">
@@ -91,7 +132,7 @@ const Hero = () => {
               className="object-cover object-center"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
