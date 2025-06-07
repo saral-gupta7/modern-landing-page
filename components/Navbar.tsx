@@ -13,9 +13,9 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 z-10 w-full bg-black"
+      className="fixed top-0 z-10 w-full bg-black p-2"
     >
-      <section className="font-poppins mx-auto h-24 w-full max-w-screen-xl">
+      <section className="font-poppins mx-2 h-20 w-full px-6">
         <div className="text-md flex h-full items-center justify-between px-4">
           <div>
             <h1 className="font-regular text-xl uppercase">Noirframe</h1>

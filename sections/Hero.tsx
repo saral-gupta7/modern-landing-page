@@ -5,54 +5,92 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import CustomButton from "@/components/CustomButton";
-
+import postHero from "@/public/images/post-hero.jpg";
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   useGSAP(() => {
-    gsap.to(".hero-bg", {
-      scale: 1.05,
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "+=80%",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-      },
-      transformOrigin: "center center",
-    });
-
-    gsap.fromTo(
+    const tl = gsap.timeline();
+    tl.fromTo(
       ".hero-span",
       {
+        opacity: 0,
         y: -100,
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        y: 0,
+        delay: 1,
+      },
+    );
+    gsap.fromTo(
+      "#coverContent",
+      {
+        y: "-30%",
+        scale: 1,
         opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
-        duration: 1,
-        stagger: 0.3,
+        // scale: 1.2,
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom bottom",
+          end: "+=100%",
+          pin: "#hero",
+          scrub: true,
+        },
+        ease: "power2.inOut",
       },
     );
+    // tl.to();
   }, []);
   return (
     <section
-      className="relative mx-auto min-h-screen max-w-screen px-4 pt-24 sm:pt-32"
+      className="mx-auto h-screen max-w-screen px-4 pt-24 sm:pt-32"
       id="hero"
     >
-      <div className="hero-bg bg-gradient absolute bottom-0 left-0 h-[85%] w-full rounded-3xl sm:h-6/7 sm:rounded-4xl">
-        <div className="flex h-full flex-col flex-wrap items-center justify-center gap-10 px-2">
-          <h1 className="font-poppins hero-text xs:text-4xl text-center text-3xl leading-tight text-black sm:text-5xl md:text-6xl lg:text-7xl">
+      <div className="relative h-full w-full rounded-3xl sm:rounded-3xl">
+        <video
+          muted
+          autoPlay
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full rounded-3xl object-cover object-center"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 h-full w-full bg-black opacity-50"></div>
+
+        <div className="absolute inset-0 flex h-full flex-col flex-wrap items-center justify-center gap-10 px-2">
+          <h1 className="font-poppins hero-text xs:text-4xl leading text-center text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="hero-span">Captured.</span>{" "}
-            <span className="hero-span italic">Crafted.</span>{" "}
+            <span className="hero-span font-playfair italic">Crafted.</span>{" "}
             <span className="hero-span">Remembered.</span>
           </h1>
-          <CustomButton
-            title="Explore"
-            className="text-dark border-dark text-3xl"
-          />
+          <CustomButton title="Explore" className="border-white text-3xl" />
+        </div>
+
+        <div
+          className="bg-gradient absolute inset-0 h-full rounded-3xl text-black"
+          id="coverContent"
+        >
+          <div className="mx-auto mt-5 flex max-w-[95%] justify-between py-5">
+            <h1 className="font-poppins text-5xl uppercase">about</h1>
+            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
+          </div>
+          <div className="relative mx-auto mt-2 h-64 max-w-[95%]">
+            <Image
+              src={postHero}
+              fill
+              priority
+              alt="posthero"
+              className="object-cover object-center"
+            />
+          </div>
         </div>
       </div>
     </section>
