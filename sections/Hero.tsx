@@ -38,7 +38,7 @@ const Hero = () => {
         // scale: 1.2,
         scrollTrigger: {
           trigger: "#hero",
-          start: "bottom bottom",
+          start: "top top",
           end: "+=100%",
           pin: "#hero",
           scrub: true,

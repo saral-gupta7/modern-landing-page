@@ -12,7 +12,7 @@ const About = () => {
       className="relative mt-5 min-h-[calc(100vh-80px)] px-6 py-12"
       id="about"
     >
-      <div className="font-poppins relative grid h-full w-full grid-cols-2 gap-40">
+      <div className="font-poppins relative grid h-full w-full grid-cols-1 gap-40 md:grid-cols-2">
         <div className="flex h-full w-full items-center justify-end">
           <Image src={landscape} alt="photo" className="w-2/3 rounded-xl" />
         </div>
