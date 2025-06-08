@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -25,17 +24,15 @@ const Hero = () => {
         delay: 1,
       },
     );
-    gsap.fromTo(
+    tl.fromTo(
       "#coverContent",
       {
-        y: "100%",
-        scale: 1,
-        // opacity: 0,
+        y: "120%",
       },
       {
         y: 0,
         opacity: 1,
-        stagger: 3,
+        stagger: 4,
         // scale: 1.2,
         scrollTrigger: {
           trigger: "#hero",
@@ -44,15 +41,24 @@ const Hero = () => {
           pin: "#hero",
           scrub: true,
         },
-        ease: "none",
+        ease: "expoScale(0.5,7, none)",
         duration: 3,
       },
     );
-    // tl.to();
+    tl.to("#coverContent", {
+      scale: 1.15,
+      scrollTrigger: {
+        trigger: "#coverContent",
+        start: "top top",
+        end: "+=200%",
+        scrub: true,
+      },
+      delay: 1,
+    });
   }, []);
   return (
     <section
-      className="mx-auto min-h-screen max-w-screen px-0 pt-24 sm:pt-32"
+      className="mx-auto min-h-[calc(100vh-30px)] max-w-screen overflow-x-hidden px-0 pt-24 sm:pt-32"
       id="hero"
     >
       <div className="relative h-full w-full rounded-3xl sm:rounded-3xl">
@@ -73,18 +79,22 @@ const Hero = () => {
             <span className="hero-span font-playfair italic">Crafted.</span>{" "}
             <span className="hero-span">Remembered.</span>
           </h1>
-          <CustomButton title="Explore" className="border-white text-3xl" />
+          <CustomButton title="Explore" className="border-white text-2xl" />
         </div>
-
+        {/* First Cover */}
         <div
-          className="absolute inset-0 h-full rounded-3xl text-black"
+          className="absolute inset-0 h-full w-full rounded-3xl text-black"
           id="coverContent"
         >
-          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-5 text-white">
-            <h1 className="font-poppins text-5xl uppercase">about</h1>
-            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
+          <div className="absolute inset-0 rounded-3xl bg-[#00000070]" />
+          <div className="flex-center absolute top-1/2 left-1/2 z-99 -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-white">
+            <h1 className="font-poppins hero-text xs:text-4xl leading text-center text-3xl text-white sm:text-5xl md:text-5xl lg:text-7xl">
+              <span className="hero-span">Captured.</span>{" "}
+              <span className="hero-span font-playfair italic">Crafted.</span>{" "}
+              <span className="hero-span">Remembered.</span>
+            </h1>
+            <CustomButton title="Explore" className="border-white text-2xl" />
           </div>
-
           <video
             muted
             loop
@@ -95,13 +105,20 @@ const Hero = () => {
             <source src="/videos/hero2.mp4" />
           </video>
         </div>
+        {/* Second Cover */}
         <div
-          className="absolute inset-0 h-full rounded-3xl text-black"
+          className="absolute inset-0 h-full w-full rounded-3xl text-black"
           id="coverContent"
         >
-          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-5 text-white">
-            <h1 className="font-poppins text-5xl uppercase">about</h1>
-            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
+          <div className="absolute inset-0 rounded-3xl bg-[#00000070]" />
+          <div className="flex-center absolute top-1/2 left-1/2 z-99 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-white">
+            <h1 className="font-poppins hero-text xs:text-4xl leading text-center text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="hero-span">Captured.</span>{" "}
+              <span className="hero-span font-playfair italic">Crafted.</span>{" "}
+              <span className="hero-span">Remembered.</span>
+            </h1>
+
+            <CustomButton title="Explore" className="border-white text-2xl" />
           </div>
 
           <video
@@ -111,28 +128,9 @@ const Hero = () => {
             playsInline
             className="z-0 h-full w-full rounded-3xl object-cover"
           >
-            <source src="https://videos.pexels.com/video-files/3942468/3942468-hd_1920_1080_30fps.mp4" />
+            <source src="/videos/hero3.mp4" />
           </video>
         </div>
-
-        {/* <div
-          className="absolute inset-0 h-full rounded-3xl bg-purple-400 text-black"
-          id="coverContent"
-        >
-          <div className="mx-auto mt-5 flex max-w-[95%] justify-between py-5">
-            <h1 className="font-poppins text-5xl uppercase">about</h1>
-            <h1 className="font-poppins text-5xl uppercase italic">Blake</h1>
-          </div>
-          <div className="relative mx-auto mt-2 h-64 max-w-[95%]">
-            <Image
-              src={postHero}
-              fill
-              priority
-              alt="posthero"
-              className="object-cover object-center"
-            />
-          </div>
-        </div> */}
       </div>
     </section>
   );

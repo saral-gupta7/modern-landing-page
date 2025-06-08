@@ -146,4 +146,14 @@
   .border {
     @apply border-2 border-amber-300;
   }
+  .absolute-center {
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .border-gradient {
+    @apply bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500;
+  }
+  .bg-fuji {
+    @apply bg-cover bg-center bg-no-repeat;
+    background-image: url("/images/landscape2.jpg");
+  }
 }

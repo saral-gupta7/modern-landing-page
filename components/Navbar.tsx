@@ -13,7 +13,7 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 z-10 w-full bg-black p-2"
+      className="fixed top-0 left-1/2 z-10 w-full -translate-x-1/2 rounded-xl bg-black/80 p-2 md:top-2 md:max-w-[96%]"
     >
       <section className="font-poppins mx-2 h-20 w-full px-6">
         <div className="text-md flex h-full items-center justify-between px-4">

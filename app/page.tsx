@@ -1,6 +1,7 @@
 "use client";
 import About from "@/sections/About";
 import Hero from "@/sections/Hero";
+import Marquee from "@/sections/marque";
 // import Gallery from "@/sections/gallery";
 import { ReactLenis } from "lenis/react";
 
@@ -10,11 +11,13 @@ const Home = () => {
   //   console.log(lenis);
   // });
   return (
-    <section className="min-h-screen bg-black px-3 md:px-6">
+    <section className="max-w-screen bg-black px-3 md:px-6">
       <ReactLenis root />
       <Hero />
+      <Marquee />
       <About />
-      {/* <Gallery /> */}
+      {/* <Gallery />
+      <div className="h-screen bg-black"></div> */}
     </section>
   );
 };
