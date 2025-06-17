@@ -58,7 +58,7 @@ const Hero = () => {
   }, []);
   return (
     <section
-      className="mx-auto min-h-[calc(100vh-30px)] max-w-screen overflow-x-hidden px-0 pt-24 sm:pt-32"
+      className="mx-auto min-h-[calc(100vh-30px)] max-w-screen overflow-x-hidden px-0 pt-24 text-white sm:pt-32"
       id="hero"
     >
       <div className="relative h-full w-full rounded-3xl sm:rounded-3xl">
@@ -89,9 +89,9 @@ const Hero = () => {
           <div className="absolute inset-0 rounded-3xl bg-[#00000070]" />
           <div className="flex-center absolute top-1/2 left-1/2 z-99 -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-white">
             <h1 className="font-poppins hero-text xs:text-4xl leading text-center text-3xl text-white sm:text-5xl md:text-5xl lg:text-7xl">
-              <span className="hero-span">Captured.</span>{" "}
-              <span className="hero-span font-playfair italic">Crafted.</span>{" "}
-              <span className="hero-span">Remembered.</span>
+              <span className="hero-span">Framed. </span>{" "}
+              <span className="hero-span font-playfair italic">Focused. </span>{" "}
+              <span className="hero-span">Focused. </span>
             </h1>
             <CustomButton title="Explore" className="border-white text-2xl" />
           </div>
@@ -113,9 +113,9 @@ const Hero = () => {
           <div className="absolute inset-0 rounded-3xl bg-[#00000070]" />
           <div className="flex-center absolute top-1/2 left-1/2 z-99 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-5 text-white">
             <h1 className="font-poppins hero-text xs:text-4xl leading text-center text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="hero-span">Captured.</span>{" "}
-              <span className="hero-span font-playfair italic">Crafted.</span>{" "}
-              <span className="hero-span">Remembered.</span>
+              <span className="hero-span">Glimpsed.</span>{" "}
+              <span className="hero-span font-playfair italic">Gathered.</span>{" "}
+              <span className="hero-span">Given.</span>
             </h1>
 
             <CustomButton title="Explore" className="border-white text-2xl" />
