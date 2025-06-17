@@ -35,7 +35,10 @@ const Hero = () => {
     });
   }, []);
   return (
-    <section className="relative h-screen max-w-screen text-white" id="hero">
+    <section
+      className="relative h-screen max-w-screen overflow-hidden text-white"
+      id="hero"
+    >
       <HeroVideo
         url={"/videos/hero.mp4"}
         content={[
