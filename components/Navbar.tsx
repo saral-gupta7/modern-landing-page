@@ -16,7 +16,7 @@ const Navbar = () => {
       <section className="font-poppins mx-2 h-20 w-full px-6">
         <div className="text-md flex h-full items-center justify-between px-4">
           <div>
-            <h1 className="font-regular text-xl uppercase">Lunair </h1>
+            <h1 className="font-regular text-xl uppercase">Alma Lente</h1>
           </div>
           <div className="flex gap-4">
             {isMenuOpen && (

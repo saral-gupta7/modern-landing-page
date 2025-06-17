@@ -26,7 +26,7 @@ const About = () => {
         scrollTrigger: {
           trigger: "#about",
           start: "30% bottom",
-          end: "bottom bottom",
+          end: "40% center",
           scrub: true,
         },
         stagger: 0.3,
@@ -35,7 +35,7 @@ const About = () => {
   }, []);
   return (
     <section
-      className="grid min-h-screen divide-x-1 divide-white/10 md:grid-cols-2 lg:grid-cols-4"
+      className="grid min-h-screen divide-x-1 divide-white/10 overflow-hidden md:grid-cols-2 lg:grid-cols-4"
       id="about"
     >
       {aboutSections.map(({ title, description, url, gradient }, idx) => (
@@ -47,7 +47,7 @@ const About = () => {
           <Image
             src={url}
             fill
-            className="absolute inset-0 z-10 object-cover opacity-10 blur-[3px] transition-all duration-300 hover:opacity-100 hover:blur-none"
+            className="absolute inset-0 z-10 object-cover opacity-15 blur-[3px] transition-all duration-300 hover:scale-103 hover:opacity-100 hover:blur-none"
             alt="image"
           />
           <h1

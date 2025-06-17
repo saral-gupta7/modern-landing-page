@@ -20,18 +20,18 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="max-w-screen bg-black px-3 md:px-6">
+    <section className="max-w-screen bg-black">
       {isMobile ? (
         <MobileView />
       ) : (
         <>
           <ReactLenis root />
-          <LoaderScreen />
+          {/* <LoaderScreen /> */}
           <Navbar />
           <Hero />
           {/* <Marquee /> */}
           <About />
-          <Gallery />
+          {/* <Gallery /> */}
         </>
       )}
     </section>
