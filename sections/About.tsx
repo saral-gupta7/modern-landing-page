@@ -9,33 +9,45 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
-    gsap.fromTo(
+    // First animation: pin the section while animating in the children
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top top",
+        end: "+=100%", // Pin only for the first animation
+        pin: true,
+        scrub: true,
+      },
+    });
+
+    tl.fromTo(
       "#sections",
       {
         opacity: 0,
         filter: "blur(5px)",
-        rotate: 30,
+        // rotate: 30,
         scale: 0.9,
       },
       {
         opacity: 1,
-        rotate: 0,
         scale: 1,
-        y: 0,
+        // rotate: 0,
         filter: "blur(0px)",
-        scrollTrigger: {
-          trigger: "#about",
-          start: "30% bottom",
-          end: "40% center",
-          scrub: true,
-        },
-        stagger: 0.3,
+        // stagger: 0.3,
+        duration: 1,
+        gap: 0,
       },
+    ).to(
+      "#about",
+      {
+        gap: -10,
+      },
+      "<+1",
     );
   }, []);
   return (
     <section
-      className="grid min-h-screen divide-x-1 divide-white/10 overflow-hidden md:grid-cols-2 lg:grid-cols-4"
+      className="grid min-h-screen gap-5 divide-x-1 divide-white/10 overflow-hidden md:grid-cols-2 lg:grid-cols-4"
       id="about"
     >
       {aboutSections.map(({ title, description, url, gradient }, idx) => (
@@ -47,7 +59,7 @@ const About = () => {
           <Image
             src={url}
             fill
-            className="absolute inset-0 z-10 object-cover opacity-15 blur-[3px] transition-all duration-300 hover:scale-103 hover:opacity-100 hover:blur-none"
+            className="absolute inset-0 z-10 object-cover opacity-30 blur-[1px] transition-all duration-300 hover:scale-103 hover:opacity-100 hover:blur-none"
             alt="image"
           />
           <h1

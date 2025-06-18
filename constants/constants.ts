@@ -1,10 +1,3 @@
-import photo1 from "@/public/images/image1.jpg";
-import photo2 from "@/public/images/image2.jpg";
-import photo3 from "@/public/images/image3.jpg";
-import photo4 from "@/public/images/image4.jpg";
-import photo5 from "@/public/images/image5.jpg";
-import photo6 from "@/public/images/image6.jpg";
-
 export const navItems = [
   {
     number: "01",
@@ -31,51 +24,6 @@ export const navItems = [
   //   title: "Company",
   //   key: "company",
   // },
-];
-
-export const imageContent = [
-  {
-    src: photo1,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image1",
-    id: "image",
-  },
-  {
-    src: photo2,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image2",
-    id: "image",
-  },
-  {
-    src: photo3,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image3",
-    id: "image",
-  },
-  {
-    src: photo4,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image4",
-    id: "image",
-  },
-  {
-    src: photo5,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image5",
-    id: "image",
-  },
-  {
-    src: photo6,
-    alt: "photo",
-    className: "absolute h-5/6 rounded-xl object-cover",
-    key: "image6",
-    id: "image",
-  },
 ];
 
 export const aboutSections = [
@@ -116,7 +64,7 @@ export const loaderItems = [
     text: "Scene.",
   },
   {
-    src: "/Loader/image9.jpg",
+    src: "/Loader/image10.jpg",
     alt: "image",
     text: "Moment.",
   },
@@ -124,5 +72,55 @@ export const loaderItems = [
     src: "/Loader/image6.jpg",
     alt: "image",
     text: "Memory.",
+  },
+];
+
+export const cards = [
+  {
+    className: "card",
+    title: "Through the Silence",
+    description:
+      "In moments untouched by noise, a quiet story unfolds. Each frame here captures solitude, serenity, and the quiet power of stillness. Witness the unseen.",
+  },
+  {
+    className: "card-1",
+    title: "Fragments of Light",
+    description:
+      "Where light breaks the ordinary, magic happens. This series explores how illumination transforms everyday subjects into visual poetry.",
+  },
+  {
+    className: "card-2",
+    title: "Motion & Memory",
+    description:
+      "Every blur is a beat of life remembered. From fleeting gestures to frozen dances, this collection captures movement as emotion frozen in time.",
+  },
+
+  {
+    className: "card-3",
+    title: "Echoes of the Past",
+    description:
+      "Textures, time, and decay—this gallery revisits forgotten spaces. These frames are odes to stories once lived, still echoing in silence.",
+  },
+];
+
+export const imageItems = [
+  {
+    url: "/images/image1.jpg",
+    className: "gallery-image",
+  },
+
+  {
+    url: "/images/image2.jpg",
+    className: "gallery-image-1",
+  },
+
+  {
+    url: "/images/image6.jpg",
+    className: "gallery-image-2",
+  },
+
+  {
+    url: "/images/image7.jpg",
+    className: "gallery-image-3",
   },
 ];
