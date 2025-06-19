@@ -105,7 +105,7 @@ export const cards = [
 
 export const imageItems = [
   {
-    url: "/images/image1.jpg",
+    url: "/images/image.jpg",
     className: "gallery-image",
   },
 
