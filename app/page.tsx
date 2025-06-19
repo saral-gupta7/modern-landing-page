@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Gallery from "@/sections/gallery";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useState } from "react";
-// import LoaderScreen from "@/sections/Loader";
+import LoaderScreen from "@/sections/Loader";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -26,7 +26,7 @@ const Home = () => {
       ) : (
         <>
           <ReactLenis root />
-          {/* <LoaderScreen /> */}
+          <LoaderScreen />
           <Navbar />
           <Hero />
           {/* <Marquee /> */}
