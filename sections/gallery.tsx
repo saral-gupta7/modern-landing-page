@@ -70,6 +70,7 @@ const Gallery = () => {
     //
     tl.to(".card", {
       y: 300,
+      ease: "power2.inOut",
     })
       .to(
         ".gallery-image-3",
@@ -78,29 +79,34 @@ const Gallery = () => {
           xpercent: 91,
           ypercent: -10,
           scale: 0.5,
+          ease: "power2.inOut",
         },
         "<",
       )
       .to(".card", {
         opacity: 0,
         delay: 0.5,
+        ease: "power2.inOut",
       })
       .to(
         ".gallery-image-3",
         {
           opacity: 0,
+          ease: "power2.inOut",
         },
         "<",
       )
       .to(".gallery-image", {
         xPercent: 110,
         duration: 0.5,
+        ease: "power2.inOut",
       })
       .to(
         ".gallery-image-1",
         {
           xPercent: 100,
           duration: 0.5,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -109,6 +115,7 @@ const Gallery = () => {
         {
           xPercent: 105,
           duration: 0.5,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -132,6 +139,7 @@ const Gallery = () => {
         {
           y: 300,
           opacity: 1,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -139,23 +147,27 @@ const Gallery = () => {
       .to(".gallery-image-2", {
         delay: 0.5,
         opacity: 0,
+        ease: "power2.inOut",
       })
       .to(
         ".card-1",
         {
           opacity: 0,
+          ease: "power2.inOut",
         },
         "<",
       )
       .to(".gallery-image", {
         xPercent: 5,
         duration: 0.5,
+        ease: "power2.inOut",
       })
       .to(
         ".gallery-image-1",
         {
           xPercent: 10,
           duration: 0.5,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -172,6 +184,7 @@ const Gallery = () => {
         xPercent: 91,
         yPercent: -10,
         scale: 0.5,
+        ease: "power2.inOut",
       })
 
       .to(
@@ -179,6 +192,7 @@ const Gallery = () => {
         {
           y: 300,
           opacity: 1,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -186,12 +200,14 @@ const Gallery = () => {
       .to(".gallery-image-1", {
         delay: 0.5,
         opacity: 0,
+        ease: "power2.inOut",
       })
 
       .to(
         ".card-2",
         {
           opacity: 0,
+          ease: "power2.inOut",
         },
         "<",
       )
@@ -202,6 +218,7 @@ const Gallery = () => {
         scale: 0.5,
         yPercent: -10,
         duration: 0.5,
+        ease: "power2.inOut",
       })
 
       .to(
@@ -217,6 +234,7 @@ const Gallery = () => {
         {
           y: 300,
           opacity: 1,
+          ease: "power2.inOut",
         },
         "<",
       );
