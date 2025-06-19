@@ -13,7 +13,7 @@ const Gallery = () => {
       scrollTrigger: {
         trigger: "#gallery",
         start: "top top",
-        end: "+=100%",
+        end: "+=250%",
         pin: true,
         scrub: true,
       },
