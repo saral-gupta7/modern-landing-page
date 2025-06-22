@@ -13,7 +13,7 @@ const Gallery = () => {
       scrollTrigger: {
         trigger: "#gallery",
         start: "top top",
-        end: "+=250%",
+        end: "+=200%",
         pin: true,
         scrub: true,
       },
@@ -124,6 +124,7 @@ const Gallery = () => {
         {
           opacity: 0,
           ease: "power2.inOut",
+          // filter: "blur(5px)",
         },
         "<",
       )
@@ -249,7 +250,7 @@ const Gallery = () => {
         fill
         alt="background"
         quality={100}
-        className="background-r"
+        className="background-4"
       />
       <Image
         src="/images/landscape6.jpg"

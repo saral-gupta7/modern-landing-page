@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@theme inline {
+@font-face {
+  font-family: "founders-grotesk";
+  src: url("/public/fonts/FoundersGrotesk-Regular.otf") format("otf");
+}
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -42,23 +47,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --background-image-gradient: linear-gradient(
-    135deg,
-    #f8f9fa,
-    #dee2e6,
-    #ced4da,
-    #adb5bd
-  );
-  --background-image-gradient-dark: linear-gradient(
-    135deg,
-    #1e1e3f,
-    #3d2c8d,
-    #6441a5
-  );
   --color-dark: #1f2937;
   --font-poppins: Poppins, sans-serif;
   --font-playfair: Playfair Display, serif;
   --font-lato: Lato, sans-serif;
+  --font-founders-grotesk: founders-grotesk, sans-serif;
+  --font-space-grotesk: Space Grotesk, sans-serif;
 }
 
 @layer base {

@@ -32,9 +32,9 @@ const CustomButton = ({ title, className }: ButtonProps) => {
   });
   return (
     <div ref={buttonRef}>
-      <Link href="#about" className="transition-all duration-200">
+      <Link href="#about">
         <button
-          className={`rounded-full border-[0.125] px-10 py-3 shadow-md shadow-white/50 transition-all duration-300 hover:scale-105 hover:bg-white/15 hover:shadow-xl hover:shadow-gray-500/50 ${className}`}
+          className={`rounded-full border-[0.125] px-10 py-3 transition-all duration-300 hover:scale-105 hover:bg-white/15 hover:shadow-xl hover:shadow-gray-500/50 ${className}`}
           id="btn"
         >
           <div className="flex-center title inset-0 gap-3">

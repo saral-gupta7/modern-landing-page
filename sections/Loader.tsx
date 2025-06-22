@@ -26,7 +26,10 @@ const LoaderScreen = () => {
       y: "-100%",
       opacity: 0,
       scale: 0.95,
-      stagger: 0.1,
+      stagger: {
+        amount: 0.3,
+        from: "center",
+      },
     });
 
     tl.to("#loader-section", {
@@ -48,7 +51,7 @@ const LoaderScreen = () => {
           key={text}
           className="relative h-screen w-full bg-black py-5 opacity-0"
         >
-          {/* <Image
+          {/* <Image@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
             src={src}
             width={1920}
             height={2800}

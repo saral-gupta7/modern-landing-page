@@ -3,6 +3,7 @@ export const navItems = [
     number: "01",
     title: "About Us",
     key: "about-us",
+    url: "#about",
   },
   /*   {
     number: "02",
@@ -28,32 +29,28 @@ export const navItems = [
 
 export const aboutSections = [
   {
-    title: "Visual Rhythm",
-    description: "Where form meets feeling.",
-    className: "flex-center flex h-screen flex-col gap-5",
-    url: "/images/image10.jpg",
-    gradient: "about-gradient-1",
+    title: "Drift",
+    subtitle: "Flow",
+    description: "Letting moments move and shape the narrative.",
+    className: "flex-center h-screen",
+    url: "/images/image9.jpg",
+    gradient: "about-gradient-9",
   },
   {
-    title: "Crafted Motion",
-    description: "Every pixel has purpose.",
+    title: "Light",
+    subtitle: "Choreography",
+    description: "Dancing shadows, painted with purpose.",
     className: "flex-center h-screen",
-    url: "/images/image8.jpg",
+    url: "/images/image12.jpg",
     gradient: "about-gradient-3 ",
   },
   {
-    title: "Design in Flow",
-    description: "Interaction. Immersion. Intuition.",
+    title: "Frames",
+    subtitle: "Harmony",
+    description: "Every image, a symphony of vision.",
     className: "flex-center h-screen",
-    url: "/images/image9.jpg",
+    url: "/images/image11.jpg",
     gradient: "about-gradient-2",
-  },
-  {
-    title: "Sculpted in Code",
-    description: "Artistry powered by logic.",
-    className: "flex-center h-screen",
-    url: "/images/image3.jpg",
-    gradient: "about-gradient-4",
   },
 ];
 

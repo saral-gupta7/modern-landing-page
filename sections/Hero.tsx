@@ -16,23 +16,49 @@ const Hero = () => {
         scrub: true,
         pin: true,
       },
+
+      defaults: {
+        duration: 1,
+      },
     });
     gsap.set("#hero-slide-2, #hero-slide-3", { y: "100%", opacity: 1 });
 
-    tl.to("#hero-slide-2", {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    });
+    tl.to("#hero-slide-1", {
+      scale: 0.95,
+    })
+      .to(
+        "#hero-slide-2",
+        {
+          y: 0,
+          opacity: 1,
+        },
+        "<",
+      )
+      .to("#hero-slide-2", {
+        scale: 0.95,
+        // opacity: 0.4,
+      })
 
-    tl.to("#hero-slide-3", {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    }).to("#hero-slide-3", {
-      y: -38,
+      .to(
+        "#hero-slide-3",
+        {
+          y: 0,
+          opacity: 1,
+        },
+        "<",
+      );
+
+    gsap.to("#hero-slide-3", {
       scale: 1.1,
+      scrollTrigger: {
+        trigger: "hero",
+        start: "30% top",
+        end: "bottom top", // defines how long the shrink takes
+        scrub: true,
+      },
     });
+    // y: -300,
+    // borderRadius: 0,
   }, []);
   return (
     <section

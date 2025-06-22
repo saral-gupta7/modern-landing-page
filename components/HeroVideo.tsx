@@ -29,7 +29,7 @@ const HeroVideo = ({ url, content, id, zIndex }: HeroProps) => {
       </video>
 
       <div className="flex-center z-20 flex-col flex-wrap gap-10">
-        <h1 className="xs:text-4xl text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="xs:text-4xl text-center text-3xl sm:text-5xl md:text-6xl">
           {content.map(({ text, isItalic }, index) => (
             <span
               key={index}
