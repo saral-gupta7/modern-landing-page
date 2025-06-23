@@ -4,35 +4,35 @@ import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-import gsap from "gsap";
-import ScrollTrigger from "gsap/all";
-import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/all";
+// import { useGSAP } from "@gsap/react";
 import Link from "next/link";
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "nav",
-        start: "bottom top",
-        // scrub: true,
-      },
-    });
+  // useGSAP(() => {
+  // const tl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "nav",
+  //     start: "bottom top",
+  //     // scrub: true,
+  //   },
+  // });
 
-    // tl.fromTo(
-    //   "nav",
-    //   { backgroundColor: "transparent" },
-    //   {
-    //     backgroundColor: "#ffffff50",
-    //     backgroundFilter: "blur(10px)",
-    //     duration: 1,
-    //     ease: "power1.inOut",
-    //   },
-    // );
-  });
+  // tl.fromTo(
+  //   "nav",
+  //   { backgroundColor: "transparent" },
+  //   {
+  //     backgroundColor: "#ffffff50",
+  //     backgroundFilter: "blur(10px)",
+  //     duration: 1,
+  //     ease: "power1.inOut",
+  //   },
+  // );
+  // });
 
   return (
     <nav className="font-poppins fixed top-0 z-50 h-20 w-full px-6 text-white">
