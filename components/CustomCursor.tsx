@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   useGSAP(() => {
-    const moveCursor = (e) => {
+    const moveCursor = (e: MouseEvent) => {
       gsap.to(cursorRef.current, {
         left: e.clientX,
         top: e.clientY,
