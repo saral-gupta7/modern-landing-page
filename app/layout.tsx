@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Playfair_Display,
+  Poppins,
+  Space_Grotesk,
+} from "next/font/google";
+// import { siteName } from "@/constants/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,7 +14,16 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+  variable: "--font-space-grotesk-ui",
+  subsets: ["latin"],
+});
+const poppins = Poppins({
+  variable: "--font-poppins-ui",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
   subsets: ["latin"],
 });
 const geistMono = Geist_Mono({
@@ -16,9 +32,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Landing Page",
+  title: "Still Reverie",
   description:
-    "A Modern landing page with sleek design and micro-interactions.",
+    "A cinematic photography landing page with immersive motion and editorial storytelling.",
 };
 
 export default function RootLayout({
@@ -29,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${poppins.variable} ${playfairDisplay.variable} antialiased`}
       >
         <main className="font-poppins flex-1">{children}</main>
       </body>

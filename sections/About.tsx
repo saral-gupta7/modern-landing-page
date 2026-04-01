@@ -7,72 +7,103 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
-  useGSAP(() => {
-    // First animation: pin the section while animating in the children
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top center",
-        end: "+=100%", // Pin only for the first animation
-        // pin: true,
-        scrub: true,
-      },
-      defaults: {
-        ease: "expo.inOut",
-      },
-    });
-    gsap.set("#sections", {
-      // translateZ: -1000,
-      rotateX: 50,
-    });
+import { motion } from "motion/react";
+import { useRef } from "react";
 
-    tl.to("#sections", {
-      opacity: 1,
-      // translateZ: 100,
-      rotateX: 0,
-      // filter: "blur(0px)",
-      duration: 1,
-    });
-    gsap.to("#about", {
-      scale: 0.9,
-      scrollTrigger: {
-        trigger: "#about",
-        start: "40% top",
-        end: "bottom top", // defines how long the shrink takes
-        scrub: true,
-      },
-    });
+const About = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 65%",
+          end: "+=110%",
+          scrub: true,
+        },
+        defaults: {
+          ease: "expo.inOut",
+        },
+      });
+
+      gsap.set(".about-panel", {
+        opacity: 0.45,
+        rotateX: 45,
+        y: 80,
+        transformOrigin: "top center",
+      });
+
+      tl.to(".about-panel", {
+        opacity: 1,
+        rotateX: 0,
+        y: 0,
+        stagger: 0.12,
+        duration: 1,
+      });
+
+      gsap.to("#about", {
+        scale: 0.94,
+        scrollTrigger: {
+          trigger: "#about",
+          start: "45% top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
+
   return (
     <section
-      className="mx-auto min-h-screen w-full max-w-screen-xl overflow-hidden"
+      ref={sectionRef}
+      className="mx-auto min-h-screen w-full max-w-6xl overflow-hidden px-6 pt-28 pb-24"
       id="about"
     >
-      <h1 className="font-space-grotesk pt-25 text-center text-5xl font-bold text-white">
-        The Story Behind the Shutter
-      </h1>
-      <div className="grid min-h-screen divide-white/10 [perspective::1000px] [transform-style:preserve-3d] md:grid-cols-1 md:gap-0 lg:grid-cols-3 lg:gap-5">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="section-label">The Story Behind The Shutter</p>
+        <h1 className="section-heading mt-5">
+          A calmer, more tactile way to present photography as a lived
+          atmosphere.
+        </h1>
+        <p className="section-copy mx-auto mt-6 max-w-2xl">
+          The motion remains cinematic, but the section now reads more like an
+          editorial spread: cleaner spacing, stronger hierarchy, and imagery
+          that does the heavy lifting.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-6 [perspective:1000px] [transform-style:preserve-3d] lg:grid-cols-3">
         {aboutSections.map(({ title, description, url, subtitle }, idx) => (
-          <div
-            className="flex-center relative my-auto h-full w-full flex-col gap-5 rounded-lg md:h-4/5"
-            id="sections"
+          <article
+            className="about-panel relative min-h-[28rem] overflow-hidden rounded-[2rem] lg:min-h-[38rem]"
             key={idx}
           >
             <Image
               src={url}
               fill
-              className="absolute inset-0 z-10 object-cover opacity-30 blur-[1px] transition-all duration-300 hover:-translate-y-[10px] hover:scale-103 hover:opacity-100 hover:blur-none"
-              alt="image"
+              className="absolute inset-0 object-cover transition-all duration-500 hover:scale-105"
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              alt={`${title} ${subtitle}`}
             />
-            <h1
-              className={`font-space-grotesk absolute right-10 bottom-7 flex flex-col items-end bg-clip-text text-2xl font-bold text-white`}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/15 to-black/80" />
+            <motion.div
+              className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-start gap-4 p-8"
+              whileHover={{
+                y: -10,
+              }}
             >
-              <span className="text-xl">{title}</span>
-              <span className="text-4xl">{subtitle}</span>
-            </h1>
-            <p className="font-playfair text-lg text-white/80">{description}</p>
-          </div>
+              <span className="section-label text-white/55">{title}</span>
+              <span className="font-space-grotesk text-4xl font-semibold text-white">
+                {subtitle}
+              </span>
+              <p className="font-playfair max-w-sm text-base leading-7 text-white/76">
+                {description}
+              </p>
+            </motion.div>
+          </article>
         ))}
       </div>
     </section>

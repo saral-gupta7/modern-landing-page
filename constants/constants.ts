@@ -1,74 +1,48 @@
 export const navItems = [
   {
     number: "01",
-    title: "About Us",
-    key: "about-us",
+    title: "Story",
+    key: "story",
     url: "#about",
   },
-  /*   {
+  {
     number: "02",
-    title: "Services",
-    key: "services",
-  }, */
-  // {
-  //   number: "03",
-  //   title: "Pricing",
-  //   key: "pricing",
-  // },
-  // {
-  //   number: "04",
-  //   title: "Resources",
-  //   key: "resources",
-  // },
-  // {
-  //   number: "04",
-  //   title: "Company",
-  //   key: "company",
-  // },
+    title: "Gallery",
+    key: "gallery",
+    url: "#gallery",
+  },
+  {
+    number: "03",
+    title: "After Hours",
+    key: "after-hours",
+    url: "#after-hours",
+  },
 ];
 
 export const aboutSections = [
   {
     title: "Drift",
     subtitle: "Flow",
-    description: "Letting moments move and shape the narrative.",
+    description:
+      "Loose, cinematic observation that lets real movement guide the frame instead of forcing it.",
     className: "flex-center h-screen",
-    url: "/images/image9.jpg",
-    gradient: "about-gradient-9",
+    url: "/images/night-reflection-portrait.webp",
   },
   {
     title: "Light",
     subtitle: "Choreography",
-    description: "Dancing shadows, painted with purpose.",
+    description:
+      "Built around contrast, texture, and the kind of lighting that makes stillness feel alive.",
     className: "flex-center h-screen",
-    url: "/images/image12.jpg",
-    gradient: "about-gradient-3 ",
+    url: "/images/tennis-shadow-study.webp",
   },
   {
     title: "Frames",
     subtitle: "Harmony",
-    description: "Every image, a symphony of vision.",
+    description:
+      "Editorial structure with a documentary heartbeat, so every composition feels composed yet human.",
     className: "flex-center h-screen",
-    url: "/images/image11.jpg",
-    gradient: "about-gradient-2",
-  },
-];
-
-export const loaderItems = [
-  {
-    src: "/Loader/image8.jpg",
-    alt: "image",
-    text: "Scene.",
-  },
-  {
-    src: "/Loader/image10.jpg",
-    alt: "image",
-    text: "Moment.",
-  },
-  {
-    src: "/Loader/image6.jpg",
-    alt: "image",
-    text: "Memory.",
+    url: "/images/image11.webp",
   },
 ];
 
@@ -77,47 +51,82 @@ export const cards = [
     className: "card",
     title: "Through the Silence",
     description:
-      "In moments untouched by noise, a quiet story unfolds. Each frame here captures solitude, serenity, and the quiet power of stillness. Witness the unseen.",
+      "In moments untouched by noise, a quieter story surfaces. These frames stay with hush, breath, and the emotional detail most people miss.",
   },
   {
     className: "card-1",
     title: "Fragments of Light",
     description:
-      "Where light breaks the ordinary, magic happens. This series explores how illumination transforms everyday subjects into visual poetry.",
+      "When light breaks the ordinary, the ordinary stops looking ordinary. This series treats illumination as the lead performer in every composition.",
   },
   {
     className: "card-2",
     title: "Motion & Memory",
     description:
-      "Every blur is a beat of life remembered. From fleeting gestures to frozen dances, this collection captures movement as emotion frozen in time.",
+      "Every blur is a remembered pulse. Fleeting gestures, quick turns, and soft transitions become a record of feeling rather than just motion.",
   },
 
   {
     className: "card-3",
     title: "Echoes of the Past",
     description:
-      "Textures, time, and decay—this gallery revisits forgotten spaces. These frames are odes to stories once lived, still echoing in silence.",
+      "Textures, age, and residue turn empty places into living archives. These frames hold on to stories long after the room has gone still.",
   },
 ];
 
 export const imageItems = [
   {
-    url: "/images/image.jpg",
-    className: "gallery-image",
+    url: "/images/crosswalk-shadow-silhouette.webp",
   },
 
   {
-    url: "/images/image2.jpg",
-    className: "gallery-image-1",
+    url: "/images/image2.webp",
   },
 
   {
-    url: "/images/image6.jpg",
-    className: "gallery-image-2",
+    url: "/images/subway-motion-study.webp",
   },
 
   {
-    url: "/images/image7.jpg",
-    className: "gallery-image-3",
+    url: "/images/image7.webp",
   },
 ];
+
+export const nightFrames = [
+  {
+    title: "Blue Reverie",
+    description:
+      "A soft triptych of coastlight and distance, leaning into stillness before the story wakes back up.",
+    url: "/images/blue-reverie-triptych.webp",
+  },
+  {
+    title: "Window Solitude",
+    description:
+      "An intimate late-night frame where reflection, grain, and hush carry more than the subject ever says.",
+    url: "/images/diner-window-solitude.webp",
+  },
+  {
+    title: "Blue Hour Collage",
+    description:
+      "Layered portraits and skyline fragments assembled into a gentler closing note for the page.",
+    url: "/images/blue-hour-collage.webp",
+  },
+];
+
+// export const socialLinks = [
+//   // {
+//   //   label: "Instagram",
+//   //   href: "https://instagram.com/__margins",
+//   //   icon: "instagram",
+//   // },
+//   {
+//     label: "Dribbble",
+//     href: "https://dribbble.com",
+//     icon: "dribbble",
+//   },
+//   {
+//     label: "LinkedIn",
+//     href: "https://linkedin.com",
+//     icon: "linkedin",
+//   },
+// ];

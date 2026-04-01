@@ -7,7 +7,8 @@ import Gallery from "@/sections/gallery";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useState } from "react";
 import CustomCursor from "@/components/CustomCursor";
-// import LoaderScreen from "@/sections/Loader";
+import AfterHours from "@/sections/AfterHours";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,17 +21,18 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="max-w-screen bg-black">
+    <section className="max-w-screen overflow-x-hidden bg-black">
       <>
         <ReactLenis root />
-        {/* <LoaderScreen /> */}
 
         {isMobile ? "" : <CustomCursor />}
 
         <Navbar />
         <Hero />
         <About />
-        {isMobile ? "" : <Gallery />}
+        <Gallery />
+        <AfterHours />
+        <Footer />
       </>
     </section>
   );

@@ -9,20 +9,27 @@ interface ButtonProps {
   className?: string;
 }
 const CustomButton = ({ title, className }: ButtonProps) => {
-  const buttonRef = useRef(null);
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    if (buttonRef.current) {
-      tl.fromTo(
-        buttonRef.current,
-        {
-          scaleX: 0,
-        },
-        { scaleX: 1, duration: 1, ease: "back.out(1.7)", delay: 1 },
-      );
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
+  useGSAP(() => {
+    if (!buttonRef.current) {
+      return;
+    }
+
+    const tl = gsap.timeline();
+    const titleRef = buttonRef.current.querySelector(".button-title");
+
+    tl.fromTo(
+      buttonRef.current,
+      {
+        scaleX: 0,
+      },
+      { scaleX: 1, duration: 1, ease: "back.out(1.7)", delay: 1 },
+    );
+
+    if (titleRef) {
       tl.fromTo(
-        ".title",
+        titleRef,
         {
           scale: 0,
         },
@@ -30,14 +37,15 @@ const CustomButton = ({ title, className }: ButtonProps) => {
       );
     }
   });
+
   return (
     <div ref={buttonRef}>
       <Link href="#about">
         <button
-          className={`rounded-full border-[0.125] px-10 py-3 transition-all duration-300 hover:scale-105 hover:bg-white/15 hover:shadow-xl hover:shadow-gray-500/50 ${className}`}
+          className={`rounded-full border-[1px] border-[#f5f0e8]/55 px-8 py-3 text-[#f7f3ec] transition-all duration-300 hover:scale-105 hover:border-[#f5f0e8]/85 hover:bg-white/12 hover:shadow-xl hover:shadow-black/30 ${className}`}
           id="btn"
         >
-          <div className="flex-center title inset-0 gap-3">
+          <div className="button-title flex-center inset-0 gap-3">
             <span className="">{title}</span>
             <span className="mt-1">
               <MoveRight />

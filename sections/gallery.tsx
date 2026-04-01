@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,293 +8,268 @@ import { cards, imageItems } from "@/constants/constants";
 gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#gallery",
-        start: "top top",
-        end: "+=200%",
-        pin: true,
-        scrub: true,
-      },
-    });
-    // initial states of text cards
-    //
-    gsap.set(".card", {
-      y: 300,
-      // xPercent: -100,
-      opacity: 1,
-    });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const galleryItems = imageItems.map((image, index) => ({
+    image,
+    card: cards[index],
+  }));
 
-    gsap.set(".card-1", {
-      y: "100%",
-      xPercent: -100,
-      opacity: 1,
-    });
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
 
-    gsap.set(".card-2", {
-      y: "100%",
-      opacity: 1,
-    });
+      mm.add("(min-width: 1024px)", () => {
+        const stage = sectionRef.current?.querySelector(".gallery-stage");
 
-    gsap.set(".card-3", {
-      y: "100%",
-      xPercent: -100,
-      opacity: 1,
-    });
+        if (!stage) {
+          return;
+        }
 
-    // setting initial position of images
-    gsap.set(".gallery-image", {
-      scale: 0.5,
-      xPercent: 5,
-      rotate: 23,
-    });
-    gsap.set(".gallery-image-1", {
-      scale: 0.5,
-      xPercent: 10,
-      rotate: -15,
-    });
-    gsap.set(".gallery-image-2", {
-      scale: 0.5,
-      xPercent: 15,
-      rotate: 10,
-    });
-    gsap.set(".gallery-image-3", {
-      rotate: 0,
-      xPercent: 91,
-      yPercent: -10,
-      scale: 0.5,
-    });
+        const stackStates = [
+          { x: 0, y: 120, rotate: -14, scale: 0.88 },
+          { x: 28, y: 82, rotate: -7, scale: 0.92 },
+          { x: 58, y: 42, rotate: 4, scale: 0.96 },
+          { x: 82, y: 8, rotate: 10, scale: 1 },
+        ];
 
-    // animated states
-    //
-    tl.to(".card", {
-      y: 300,
-      ease: "power2.inOut",
-    })
-      .to(
-        ".gallery-image-3",
-        {
+        const activeX = () => stage.clientWidth * 0.4;
+        const activeY = () => 18;
+        const restingX = () => stage.clientWidth * 0.39;
+
+        gsap.set(".gallery-copy", {
+          autoAlpha: 0,
+          y: 36,
+        });
+
+        gsap.set(".gallery-bg", {
+          autoAlpha: 0,
+        });
+
+        gsap.set(".gallery-bg-0", {
+          autoAlpha: 1,
+        });
+
+        gsap.utils
+          .toArray<HTMLElement>(".gallery-card")
+          .forEach((card, index) => {
+            gsap.set(card, {
+              ...stackStates[index],
+              autoAlpha: 1,
+              transformOrigin: "center center",
+              zIndex: 20 - index,
+            });
+          });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#gallery-desktop",
+            start: "top top",
+            end: "+=260%",
+            pin: true,
+            scrub: true,
+          },
+        });
+
+        tl.to(".gallery-card-0", {
+          x: activeX,
+          y: activeY,
           rotate: 0,
-          xpercent: 91,
-          ypercent: -10,
-          scale: 0.5,
+          scale: 1.1,
           ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(".card", {
-        opacity: 0,
-        delay: 0.5,
-        ease: "power2.inOut",
-      })
-      .to(
-        ".gallery-image-3",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(".gallery-image", {
-        xPercent: 110,
-        duration: 0.5,
-        ease: "power2.inOut",
-      })
-      .to(
-        ".gallery-image-1",
-        {
-          xPercent: 100,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(
-        ".gallery-image-2",
-        {
-          xPercent: 105,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(
-        ".background-1",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-          // filter: "blur(5px)",
-        },
-        "<",
-      )
-      .to(".gallery-image-2", {
-        xPercent: -9,
-        yPercent: -10,
-        scale: 0.5,
-        rotate: 0,
-        ease: "power2.inOut",
-      })
-      .to(
-        ".card-1",
-        {
-          y: 300,
-          opacity: 1,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
+          duration: 1,
+        }).to(
+          ".gallery-copy-0",
+          {
+            autoAlpha: 1,
+            y: 0,
+            ease: "power2.out",
+            duration: 0.45,
+          },
+          "<0.1",
+        );
 
-      .to(".gallery-image-2", {
-        delay: 0.5,
-        opacity: 0,
-        ease: "power2.inOut",
-      })
-      .to(
-        ".card-1",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(".gallery-image", {
-        xPercent: 5,
-        duration: 0.5,
-        ease: "power2.inOut",
-      })
-      .to(
-        ".gallery-image-1",
-        {
-          xPercent: 10,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(
-        ".background-2",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(".gallery-image-1", {
-        rotate: 0,
-        xPercent: 91,
-        yPercent: -10,
-        scale: 0.5,
-        ease: "power2.inOut",
-      })
+        galleryItems.slice(1).forEach((_, index) => {
+          const previous = index;
+          const current = index + 1;
 
-      .to(
-        ".card-2",
-        {
-          y: 300,
-          opacity: 1,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
+          tl.to(`.gallery-copy-${previous}`, {
+            autoAlpha: 0,
+            y: -24,
+            ease: "power2.inOut",
+            duration: 0.35,
+          })
+            .to(
+              `.gallery-bg-${previous}`,
+              {
+                autoAlpha: 0,
+                ease: "power2.inOut",
+                duration: 0.4,
+              },
+              "<",
+            )
+            .to(
+              `.gallery-card-${previous}`,
+              {
+                autoAlpha: 0,
+                x: restingX,
+                y: 48,
+                rotate: -4,
+                scale: 1.14,
+                ease: "power2.inOut",
+                duration: 0.45,
+              },
+              "<",
+            )
+            .to(
+              `.gallery-bg-${current}`,
+              {
+                autoAlpha: 1,
+                ease: "power2.inOut",
+                duration: 0.4,
+              },
+              "<",
+            )
+            .to(
+              `.gallery-card-${current}`,
+              {
+                x: activeX,
+                y: activeY,
+                rotate: 0,
+                scale: 1.1,
+                ease: "power2.inOut",
+                duration: 0.95,
+              },
+              ">-0.05",
+            )
+            .to(
+              `.gallery-copy-${current}`,
+              {
+                autoAlpha: 1,
+                y: 0,
+                ease: "power2.out",
+                duration: 0.45,
+              },
+              "<0.12",
+            );
+        });
+      });
 
-      .to(".gallery-image-1", {
-        delay: 0.5,
-        opacity: 0,
-        ease: "power2.inOut",
-      })
+      return () => mm.revert();
+    },
+    { scope: sectionRef },
+  );
 
-      .to(
-        ".card-2",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-
-      .to(".gallery-image", {
-        xPercent: -9,
-        rotate: 0,
-        scale: 0.5,
-        yPercent: -10,
-        duration: 0.5,
-        ease: "power2.inOut",
-      })
-
-      .to(
-        ".background-3",
-        {
-          opacity: 0,
-          ease: "power2.inOut",
-        },
-        "<",
-      )
-      .to(
-        ".card-3",
-        {
-          y: 300,
-          opacity: 1,
-          ease: "power2.inOut",
-        },
-        "<",
-      );
-  });
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden text-white"
-      id="gallery"
-    >
-      <Image
-        src="/images/landscape.jpg"
-        fill
-        alt="background"
-        quality={100}
-        className="background-4"
-      />
-      <Image
-        src="/images/landscape6.jpg"
-        fill
-        alt="background"
-        quality={100}
-        className="background-3"
-      />
-      <Image
-        src="/images/landscape4.jpg"
-        fill
-        alt="background"
-        quality={100}
-        className="background-2"
-      />
+    <section ref={sectionRef} className="relative text-white" id="gallery">
+      <div
+        id="gallery-desktop"
+        className="relative hidden min-h-screen overflow-hidden px-6 py-10 lg:block"
+      >
+        <Image
+          src="/images/landscape.webp"
+          fill
+          alt="Dark landscape backdrop"
+          sizes="100vw"
+          className="gallery-bg gallery-bg-3 object-cover"
+        />
+        <Image
+          src="/images/landscape6.webp"
+          fill
+          alt="Layered landscape backdrop"
+          sizes="100vw"
+          className="gallery-bg gallery-bg-2 object-cover"
+        />
+        <Image
+          src="/images/landscape4.webp"
+          fill
+          alt="Muted landscape backdrop"
+          sizes="100vw"
+          className="gallery-bg gallery-bg-1 object-cover"
+        />
+        <Image
+          src="/images/landscape2.webp"
+          fill
+          alt="Mountain backdrop"
+          sizes="100vw"
+          className="gallery-bg gallery-bg-0 object-cover"
+        />
 
-      <Image
-        src="/images/landscape2.jpg"
-        fill
-        alt="background"
-        quality={100}
-        className="background-1"
-      />
+        <div className="absolute inset-0 bg-black/40" />
 
-      <div className="grid h-full w-full grid-cols-2">
-        <div className="relative h-screen w-full">
-          {imageItems.map(({ url, className }, id) => (
-            <Image
-              src={url}
-              alt="gallery"
-              fill
-              key={id}
-              className={`absolute object-cover ${className} bg-white p-8 pb-40 shadow-2xl drop-shadow-orange-600`}
-            />
-          ))}
+        <div className="gallery-stage relative z-10 mx-auto h-screen max-w-[88rem]">
+          <div className="pointer-events-none max-w-md pt-20">
+            <p className="section-label">Selected Frames</p>
+            <h2 className="font-space-grotesk mt-4 text-4xl leading-tight font-semibold">
+              A gallery stack that lets each frame leave the pile and own the
+              stage.
+            </h2>
+          </div>
+
+          <div className="absolute top-[28%] left-0 h-[34rem] w-[22rem] xl:w-[24rem]">
+            {galleryItems.map(({ image, card }, index) => (
+              <div
+                key={card.title}
+                className={`gallery-card gallery-card-${index} absolute top-0 left-0 h-[28rem] w-[18.5rem] overflow-hidden rounded-[2rem] shadow-[0_36px_90px_rgba(0,0,0,0.45)] xl:h-[31rem] xl:w-[20rem]`}
+              >
+                <Image
+                  src={image.url}
+                  alt={card.title}
+                  fill
+                  sizes="(max-width: 1536px) 24vw, 20rem"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+              </div>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute top-[22%] right-0 h-[26rem] w-[min(33rem,36vw)]">
+            {galleryItems.map(({ card }, index) => (
+              <GalleryContent
+                title={card.title}
+                content={card.description}
+                className={`gallery-copy gallery-copy-${index}`}
+                index={index + 1}
+                key={card.title}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex-center relative h-screen">
-          {cards.map(({ title, description, className }, id) => (
-            <GalleryContent
-              title={title}
-              content={description}
-              className={className}
-              key={id}
-            />
+      </div>
+
+      <div className="px-5 py-20 lg:hidden">
+        <div className="mx-auto max-w-xl">
+          <p className="section-label">Selected Frames</p>
+          <h2 className="font-space-grotesk mt-4 text-4xl leading-tight font-semibold">
+            A mobile-first gallery that keeps the imagery clear and the copy
+            readable.
+          </h2>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-xl space-y-12">
+          {galleryItems.map(({ image, card }, index) => (
+            <article key={card.title}>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
+                <Image
+                  src={image.url}
+                  alt={card.title}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+              </div>
+
+              <div className="mt-5">
+                <span className="section-label">{`Sequence ${String(index + 1).padStart(2, "0")}`}</span>
+                <h3 className="font-space-grotesk mt-3 text-3xl font-semibold">
+                  {card.title}
+                </h3>
+                <p className="font-playfair mt-4 text-base leading-7 text-white/76">
+                  {card.description}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

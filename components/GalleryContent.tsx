@@ -4,14 +4,25 @@ interface GalleryContentProps {
   content: string;
   title: string;
   className: string;
+  index: number;
 }
-const GalleryContent = ({ content, title, className }: GalleryContentProps) => {
+const GalleryContent = ({
+  content,
+  title,
+  className,
+  index,
+}: GalleryContentProps) => {
   return (
     <div
-      className={`${className} absolute flex h-full w-full flex-col justify-center gap-5 p-30`}
+      className={`${className} absolute inset-0 flex h-full w-full flex-col justify-center gap-6 px-8 py-14 lg:px-16`}
     >
-      <h1 className="font-semi text-4xl">{title}</h1>
-      <p className="font-playfair text-lg text-white/90">{content}</p>
+      <span className="section-label">{`Sequence ${String(index).padStart(2, "0")}`}</span>
+      <h1 className="font-space-grotesk max-w-lg text-4xl leading-tight font-semibold lg:text-5xl">
+        {title}
+      </h1>
+      <p className="font-playfair max-w-xl text-lg leading-8 text-white/82">
+        {content}
+      </p>
     </div>
   );
 };

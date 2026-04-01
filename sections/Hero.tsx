@@ -66,7 +66,12 @@ const Hero = () => {
       id="hero"
     >
       <HeroVideo
-        url={"/videos/hero.mp4"}
+        webmUrl="/videos/hero.webm"
+        mp4Url="/videos/hero-fallback.mp4"
+        poster="/images/post-hero.webp"
+        eyebrow="Brand and portrait stills"
+        rightLabel="Visual Essay 01"
+        caption="Editorial photography for brands, people, and spaces that need atmosphere as much as clarity."
         content={[
           { text: "Captured." },
           { text: "Crafted.", isItalic: true },
@@ -76,7 +81,12 @@ const Hero = () => {
         zIndex="z-10"
       />
       <HeroVideo
-        url={"/videos/hero2.mp4"}
+        webmUrl="/videos/hero2.webm"
+        mp4Url="/videos/hero2-fallback.mp4"
+        poster="/images/landscape6.webp"
+        eyebrow="Light-led compositions"
+        rightLabel="Light Study 02"
+        caption="Every sequence is arranged to feel tactile on first glance and layered once you stay with it."
         content={[
           { text: "Framed." },
           { text: "Focused.", isItalic: true },
@@ -86,7 +96,12 @@ const Hero = () => {
         zIndex="z-20"
       />
       <HeroVideo
-        url={"/videos/hero3.mp4"}
+        webmUrl="/videos/hero3.webm"
+        mp4Url="/videos/hero3-fallback.mp4"
+        poster="/images/landscape4.webp"
+        eyebrow="Motion with restraint"
+        rightLabel="Memory Draft 03"
+        caption="The pacing stays calm, the transitions stay fluid, and the story remains the thing you remember."
         content={[
           { text: "Glimpsed." },
           { text: "Gathered.", isItalic: true },

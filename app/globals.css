@@ -1,14 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@font-face {
-  font-family: "founders-grotesk";
-  src: url("/public/fonts/FoundersGrotesk-Regular.otf") format("otf");
-}
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,28 +39,36 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-dark: #1f2937;
-  --font-poppins: Poppins, sans-serif;
-  --font-playfair: Playfair Display, serif;
-  --font-lato: Lato, sans-serif;
-  --font-founders-grotesk: founders-grotesk, sans-serif;
-  --font-space-grotesk: Space Grotesk, sans-serif;
+  --font-poppins: var(--font-poppins-ui), sans-serif;
+  --font-playfair: var(--font-playfair-display), serif;
+  --font-space-grotesk: var(--font-space-grotesk-ui), sans-serif;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply text-foreground bg-black;
+    background:
+      radial-gradient(circle at top, rgba(74, 111, 255, 0.16), transparent 30%),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(252, 196, 120, 0.14),
+        transparent 25%
+      ),
+      #050505;
   }
 }
 
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
-  }
-  .border {
-    @apply border-2 border-amber-300;
   }
   .absolute-center {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
@@ -85,22 +84,23 @@
     @apply bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500;
   }
 
-  .about-gradient-1 {
-    @apply bg-gradient-to-tr from-[#244855] via-[#E64833] to-[#FBE9D0];
+  .section-label {
+    @apply font-poppins text-xs font-medium tracking-[0.35em] text-white/45 uppercase;
   }
 
-  .about-gradient-2 {
-    @apply bg-gradient-to-r from-[#2C3531] via-[#116466] via-[#D9B08C] via-[#FFCB9A] to-[#D1E8E2];
-  }
-  .about-gradient-3 {
-    @apply bg-gradient-to-r from-[#5680E9] via-[#5AB9EA] via-[#84CEEB] via-[#C1C8E4] to-[#8860D0];
+  .section-heading {
+    @apply font-space-grotesk text-4xl leading-tight font-semibold text-white sm:text-5xl md:text-6xl;
   }
 
-  .about-gradient-4 {
-    @apply bg-gradient-to-r from-[#4285F4] via-[#5C2018] via-[#BC4639] via-[#D4A59A] to-[#F3E0DC];
+  .section-copy {
+    @apply font-playfair text-base leading-7 text-white/72 sm:text-lg;
   }
-  .bg-fuji {
-    @apply bg-cover bg-center bg-no-repeat;
-    background-image: url("/images/landscape2.jpg");
+
+  .sleep-glow {
+    background: radial-gradient(
+      circle,
+      rgba(101, 127, 255, 0.22) 0%,
+      transparent 60%
+    );
   }
 }
